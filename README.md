@@ -1,9 +1,9 @@
 it's beta
 
-showalert.org
-http://showalert.org/macro.html
-Примеры работы с разными настройками
 
+Примеры работы с разными настройками
+http://showalert.org
+http://showalert.org/macro.html
 
 
 Bookmarklet для тестирования

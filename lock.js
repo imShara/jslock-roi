@@ -32,6 +32,10 @@ w.lk.opt = {
   
   // Свой собственный текст обращения
   customMessage: '',
+  // Показывать текст обращения
+  showMessage: true,
+  // Показывать инструкцию по регистрации
+  showManual: true,
 
   // Дата, после которой скрипт не запустится (кроме якоря #block)
   deadline: +new Date("Thu Aug 01 2013 16:00:00 GMT+0400 (MSK)"),
@@ -323,8 +327,8 @@ lk.html = '<div class="lkr-fill"></div>' +
       '<div id="lkr-bar"></div>' +
       '<div class="lkr-stat"><span id="lkr-votes">?</span> из 100.000 подписей собрано</div>' +
     '</div>' +
-    '<div class="lkr-info">' + ((lk.opt.customMessage) ? lk.opt.customMessage : lk.message) + '</div>' +
-    '<div class="lkr-man">' +
+    ((lk.opt.showMessage) ? '<div class="lkr-info">' + ((lk.opt.customMessage) ? lk.opt.customMessage : lk.message) + '</div>' : '') +
+    ((lk.opt.customMessage) ? '<div class="lkr-man">' +
     '<img id="lkr-slide" src="">' +
     '<div id="lkr-nav">' +
       '<div class="lkr-btn lkr-off" id="lkr-back">Назад</div>' +
@@ -332,7 +336,7 @@ lk.html = '<div class="lkr-fill"></div>' +
     '</div>' +
     '<div id="lkr-step">' +
     '</div>' +
-    '</div>' +
+    '</div>' : '') +
     '<div class="lkr-btnfld'+((lk.opt.thereIsNoFuture) ? ' lkr-nofuture' : '')+'">' +
       '<a class="lkr-btn" id="lkr-pet" target="_blank" href="' + lk.opt.voteURL + '">Подписать петицию</a>' +
       '<a class="lkr-btn lkr-off" id="lkr-res" href="javascript:void(0)">Продолжить работу <span id="lkr-time"></span></a>' +
@@ -902,19 +906,24 @@ documentReady(function(){
 
   d.getElementById('lkr-body').style.marginTop = getScroll()+'px';
 
-  lk.manual.nav(0);
   jsonp("//lockjs.googlecode.com/git/votes.js");
 
-  d.getElementById('lkr-nav').onclick = function(e) {
-    if (e.target.id == 'lkr-next' || e.target.parentNode.id == 'lkr-next')
-      lk.manual.nav(1);
-    else if (e.target.id == 'lkr-back' || e.target.parentNode.id == 'lkr-back')
-      lk.manual.nav(-1);
-  };
+  if (lk.opt.showManual) {
+    lk.manual.nav(0);
+
+    d.getElementById('lkr-nav').onclick = function(e) {
+      if (!e) e = w.event;
+      if ((e.target || e.srcElement).id == 'lkr-next' || (e.target || e.srcElement).parentNode.id == 'lkr-next')
+        lk.manual.nav(1);
+      else if ((e.target || e.srcElement).id == 'lkr-back' || (e.target || e.srcElement).parentNode.id == 'lkr-back')
+        lk.manual.nav(-1);
+    };
+  }
 
   d.getElementById('lkr-share').onclick = function(e) {
-    if (e.target.tagName == "A")
-      lk.share(e.target.id.substr(4, this.length));
+    if (!e) e = w.event;
+    if ((e.target || e.srcElement).tagName == "A")
+      lk.share((e.target || e.srcElement).id.substr(4, this.length));
   };
 
   if (!lk.opt.thereIsNoFuture) {
@@ -941,7 +950,6 @@ documentReady(function(){
       lk.signed = true;
     }
   };
-
 
 });
 

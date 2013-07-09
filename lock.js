@@ -203,7 +203,7 @@ var lockTime    = getStorage('timerstatelock') || lk.opt.time;
 if (isOperaMini) return;
 if (!w.lk.opt.showEverytime && isExpires) return;
 if (!w.lk.opt.showEverytime && isSeenRoi && w.location.hash != '#block') return;
-if (lk.onlyRusLang && !isRussian) return;
+if (lk.opt.onlyRusLang && !isRussian) return;
 if (lockTime) lockTime = parseInt(lockTime, 10);
 
 lk.share = function(net) {
@@ -212,78 +212,77 @@ lk.share = function(net) {
   switch (net) {
     case "v":
       url  = 'http://vkontakte.ru/share.php';
-      url += '?url='         + toURI(lk.shareURL);
-      url += '&title='       + toURI(lk.shareTitle);
-      url += '&description=' + toURI(lk.shareText);
-      url += '&image='       + toURI(shareImg);
+      url += '?url='         + toURI(lk.opt.shareURL);
+      url += '&title='       + toURI(lk.opt.shareTitle);
+      url += '&description=' + toURI(lk.opt.shareText);
+      url += '&image='       + toURI(lk.opt.shareImg);
       url += '&noparse=true';
       break;
 
     case "o":
       url  = 'http://www.odnoklassniki.ru/dk?st.cmd=addShare&st.s=1';
-      url += '&st.comments=' + toURI(lk.shareText);
-      url += '&st._surl='    + toURI(lk.shareURL);
+      url += '&st.comments=' + toURI(lk.opt.shareText);
+      url += '&st._surl='    + toURI(lk.opt.shareURL);
       break;
 
     case "f":
       url  = 'http://www.facebook.com/sharer.php?s=100';
-      url += '&p[title]='     + toURI(lk.shareTitle);
-      url += '&p[summary]='   + toURI(lk.shareText);
-      url += '&p[url]='       + toURI(lk.shareURL);
-      url += '&p[images][0]=' + toURI(shareImg);
+      url += '&p[title]='     + toURI(lk.opt.shareTitle);
+      url += '&p[summary]='   + toURI(lk.opt.shareText);
+      url += '&p[url]='       + toURI(lk.opt.shareURL);
+      url += '&p[images][0]=' + toURI(lk.opt.shareImg);
       break;
 
     case "t":
       url  = 'http://twitter.com/share';
-      url += '?text='     + toURI(lk.shareText);
-      url += '&url='      + toURI(lk.shareURL);
-      url += '&counturl=' + toURI(lk.shareURL);
+      url += '?text='     + toURI(lk.opt.shareText);
+      url += '&url='      + toURI(lk.opt.shareURL);
+      url += '&counturl=' + toURI(lk.opt.shareURL);
       break;
 
     case "g":
       url  = 'https://plus.google.com/share';
-      url += '?url=' + toURI(lk.shareURL);
+      url += '?url=' + toURI(lk.opt.shareURL);
       break;
 
     case "m":
       url  = 'http://connect.mail.ru/share';
-      url += '?url='         + toURI(lk.shareURL);
-      url += '&title='       + toURI(lk.shareTitle);
-      url += '&description=' + toURI(lk.shareText);
-      url += '&imageurl='    + toURI(shareImg);
+      url += '?url='         + toURI(lk.opt.shareURL);
+      url += '&title='       + toURI(lk.opt.shareTitle);
+      url += '&description=' + toURI(lk.opt.shareText);
+      url += '&imageurl='    + toURI(lk.opt.shareImg);
       break;
 
     case "y":
       url  = 'http://wow.ya.ru/posts_share_link.xml';
-      url += '?url='   + toURI(lk.shareURL);
-      url += '&title=' + toURI(lk.shareTitle);
-      url += '&body='  + toURI(lk.shareText);
+      url += '?url='   + toURI(lk.opt.shareURL);
+      url += '&title=' + toURI(lk.opt.shareTitle);
+      url += '&body='  + toURI(lk.opt.shareText);
       break;
 
     case "j":
       url  = 'http://livejournal.com/update.bml';
-      url += '?subject=' + toURI(lk.shareTitle);
-      url += '&event='   + toURI(lk.shareText+'<br/><a href="'+lk.shareURL+'">'+lk.shareTitle+'</a>');
+      url += '?subject=' + toURI(lk.opt.shareTitle);
+      url += '&event='   + toURI(lk.opt.shareText+'<br/><a href="'+lk.opt.shareURL+'">'+lk.opt.shareTitle+'</a>');
       url += '&transform=1';
       break;
 
     case "l":
       url  = 'http://www.liveinternet.ru/journal_post.php?action=n_add';
-      url += '&cnurl='  + toURI(lk.shareURL);
-      url += '&cntitle=' + toURI(lk.shareTitle);
+      url += '&cnurl='  + toURI(lk.opt.shareURL);
+      url += '&cntitle=' + toURI(lk.opt.shareTitle);
       break;
 
     case "b":
       url  = 'http://blogger.com/blog-this.g?t';
-      url += '&u=' + toURI(lk.shareURL);
-      url += '&n=' + toURI(lk.shareTitle);
+      url += '&u=' + toURI(lk.opt.shareURL);
+      url += '&n=' + toURI(lk.opt.shareTitle);
       break;
   }
 
   if (url) {
     w.open(url, '', 'toolbar=0,status=0,width=640,height=480');
     lk.sendStat({share:net});
-    lk.done = true;
   }
 };
 

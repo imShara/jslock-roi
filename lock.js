@@ -15,12 +15,12 @@ w.lk.opt = {
   // Название сайта в заголовке
   siteName: location.hostname,
   // Ссылка на сайт в заголовке
-  siteURL: location.host,
+  siteURL: window.location.protocol+"//"+window.location.host,
   // Адрес петиции
   voteURL: 'https://www.roi.ru/poll/petition/gosudarstvennoe_upravlenie1/otmenit-zakon-o-proizvolnyh-blokirovkah-internet-resursov-ot-02072013-187-fz-zakon-protiv-interneta/',
 
   // Ссылка на сайт в заголовке
-  shareLocalURL: false,
+  shareLocalURL: true,
   // Адрес, который публикует пользователь в соцсетях. Якорь #block заставляет показать страницу блокировки в любом случае
   shareURL: 'http://showalert.org/#block',  
   // Ссылка на изображение, которое публикует пользователь в соцсетях
@@ -28,7 +28,7 @@ w.lk.opt = {
   // Заголовок поста, который публикует пользователь в соцсетях
   shareTitle: 'Интернет-свобода под угрозой!',
   // Текст, который публикует пользователь в соцсетях 140 символов
-  shareText: 'С 1 августа вступает в силу #ЗаконПротивИнтернета. У нас есть возможность остановить его.',
+  shareText: 'С 1 августа вступает в силу #ЗаконПротивИнтернета. У нас есть возможность остановить его. Важен каждый голос!',
   
   // Свой собственный текст обращения
   customMessage: '',
@@ -188,10 +188,10 @@ function jsonp(url) {
 }
 
 lk.applySettings = function(settings) {
-    if (this.opt.shareLocalURL)
-      this.opt.shareURL = 'http://' + location.host + '/#block';
+    if (lk.opt.shareLocalURL)
+      lk.opt.shareURL = lk.opt.siteURL + '/#block';
     for (var i in settings)
-      this.opt[i] = settings[i];
+      lk.opt[i] = settings[i];
 };
 
 lk.applySettings(w.LOCKR_SETTINGS);
@@ -325,7 +325,7 @@ lk.html = '<div class="lkr-fill"></div>' +
     '</div>' +
     '<div class="lkr-progress">' +
       '<div id="lkr-bar"></div>' +
-      '<div class="lkr-stat"><span id="lkr-votes">?</span> из 100.000 подписей собрано</div>' +
+      '<a class="lkr-stat" target="_blank" href="' + lk.opt.voteURL + '"><span id="lkr-votes">?</span> из 100.000 подписей собрано</a>' +
     '</div>' +
     ((lk.opt.showMessage) ? '<div class="lkr-info">' + ((lk.opt.customMessage) ? lk.opt.customMessage : lk.message) + '</div>' : '') +
     ((lk.opt.showManual) ? '<div class="lkr-man">' +
@@ -355,7 +355,7 @@ lk.html = '<div class="lkr-fill"></div>' +
       '<a href="javascript:void(0)" id="lkr-b"></a>' +
     '</div>' +
     '<div class="lkr-note">Разместите это обращение на личном сайте, вставив данный код в любую часть страницы</div>' +
-    '<div class="lkr-note"><span class="lkr-mark">&lt;script src="//lockjs.googlecode.com/git/lock.js"&gt;&lt;/script&gt;</span> Исходный код скрипта на GitHub</div>' +
+    '<div class="lkr-note"><span class="lkr-mark">&lt;script src="//lockjs.googlecode.com/git/lock.js"&gt;&lt;/script&gt;</span> Исходный код скрипта <a target="_blank" href="https://github.com/imShara/jslock-roi"></a>на GitHub</a></div>' +
     '<div class="lkr-note lkr-about">По всем вопросам обращайтесь на Email: block.runet@gmail.com</div>' +
   '</div>';
 
@@ -418,6 +418,7 @@ lk.css = ' .lkr-body * {margin:0; padding:0;}' +
   'font-family: Verdana, sans-serif;' +
   'z-index: 999999;' +
   'text-align: left;' +
+  'text-shadow: none;' +
 '}' +
 '.lkr-body p {' +
   'margin: 10px;' +
@@ -436,7 +437,6 @@ lk.css = ' .lkr-body * {margin:0; padding:0;}' +
 '}' +
 '.lkr-body a {' +
   'border: none !important;' +
-  'text-decoration: underline !important;' +
 '}' +
 '.lkr-body a:hover {' +
   'border: none !important;' +
@@ -452,6 +452,9 @@ lk.css = ' .lkr-body * {margin:0; padding:0;}' +
   'font-family: Georgia, serif;' +
   'text-decoration: none !important;' +
   'display: block;' +
+'}' +
+'html a.lkr-name:hover {' +
+  'color: #fff !important;' +
 '}' +
 '.lkr-cause {' +
   'margin-top: 30px;' +
@@ -469,6 +472,7 @@ lk.css = ' .lkr-body * {margin:0; padding:0;}' +
 '}' +
 '.lkr-note a {' +
   'color: #888 !important;' +
+  'text-decoration: underline !important;' +
 '}' +
 '.lkr-note a:hover {' +
   'color: #71acfb !important;' +
@@ -489,7 +493,6 @@ lk.css = ' .lkr-body * {margin:0; padding:0;}' +
   'font-family: Georgia;' +
   'border-radius: 5px;' +
   'background: #202020;' +
-  'color: #e8ebf3;' +
   'text-align: center;' +
   'font-weight: 700;' +
   'font-size: 1em;' +
@@ -499,6 +502,7 @@ lk.css = ' .lkr-body * {margin:0; padding:0;}' +
 '}' +
 '.lkr-alert a {' +
   'color: #000;' +
+  'text-decoration: underline !important;' +
 '}' +
 '#lkr-bar {' +
   'width: 0;' +
@@ -510,10 +514,15 @@ lk.css = ' .lkr-body * {margin:0; padding:0;}' +
 '.lkr-stat {' +
   'width: 100%;' +
   'height: 46px;' +
+  'color: #e8ebf3 !important;' +
+  'text-decoration: none !important;' +
   'line-height: 46px;' +
   'position: absolute;' +
   'top: 0;' +
   'left: 0;' +
+'}' +
+'html .lkr-stat:hover {' +
+  'color: #fff !important;' +
 '}' +
 '.lkr-info {' +
   'font-size: 0.8em;' +
@@ -521,6 +530,7 @@ lk.css = ' .lkr-body * {margin:0; padding:0;}' +
 '}' +
 '.lkr-info a {' +
   'color: #e8ebf3 !important;' +
+  'text-decoration: underline !important;' +
 '}' +
 '.lkr-info a:hover {' +
   'color: #71acfb !important;' +
@@ -529,7 +539,7 @@ lk.css = ' .lkr-body * {margin:0; padding:0;}' +
   'display: block;' +
   'border-radius: 5px;' +
   'background: #202020;' +
-  'color: #c9ccd4;' +
+  'color: #c9ccd4 !important;' +
   'text-align: center;' +
   'padding: 14px 3%;' +
   'font-size: 0.9em;' +
@@ -537,11 +547,11 @@ lk.css = ' .lkr-body * {margin:0; padding:0;}' +
   'text-shadow: 1px 1px 1px rgba(0,0,0,.3);' +
   'cursor: pointer;' +
 '}' +
-'a.lkr-btn {' +
+'a.lkr-btn, div.lkr-btn {' +
   'text-decoration: none !important;' +
 '}' +
 '.lkr-btn:hover {' +
-  'color: #fff;' +
+  'color: #fff !important;' +
   'background: #4184df;' +
 '}' +
 '.lkr-btnfld, #lkr-nav {' +
@@ -590,6 +600,7 @@ lk.css = ' .lkr-body * {margin:0; padding:0;}' +
 '}' +
 '.lkr-act a {' +
   'color: #e8ebf3;' +
+  'text-decoration: underline !important;' +
 '}' +
 '.lkr-act a:hover {' +
   'color: #71acfb;' +
@@ -601,6 +612,7 @@ lk.css = ' .lkr-body * {margin:0; padding:0;}' +
 '}' +
 '.lkr-man p a, .lkr-man li a {' +
   'color: #888 !important;' +
+  'text-decoration: underline !important;' +
 '}' +
 '.lkr-man p a:hover {' +
   'color: #71acfb !important;' +
@@ -633,13 +645,13 @@ lk.css = ' .lkr-body * {margin:0; padding:0;}' +
   'width: 54%;' +
 '}' +
 '.lkr-off {' +
-  'color: #444;' +
+  'color: #444 !important;' +
   'text-shadow: none;' +
   'cursor: default;' +
 '}' +
 '.lkr-off:hover {' +
-  'color: #444;' +
-  'background-color: #202020;' +
+  'color: #444 !important;' +
+  'background: #202020 !important;' +
 '}' +
 '.lkr-nofuture #lkr-pet {' +
   'width: auto;' +
@@ -816,6 +828,7 @@ lk.manual.nav = function(dir) {
       next.innerHTML = 'Далее<span>' + btntxt + '</span>';
     }
 
+
     // get man deep for metrics
     if (lk.stat.showedSteps + dir > lk.stat.showedSteps)
       lk.stat.showedSteps = lk.stat.showedSteps + dir;
@@ -929,6 +942,7 @@ documentReady(function(){
   if (!lk.opt.thereIsNoFuture) {
     lk.timer();
     d.getElementById('lkr-res').onclick = function() {
+      if (lockTime) return;
         setStorage('roi_alreadyseenlock', '1', 3456000);
         var lkEl = d.getElementById('lkr-page');
         lkEl.parentNode.removeChild(lkEl);

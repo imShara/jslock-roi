@@ -39,7 +39,9 @@ w.lk.opt = {
   // Идентификатор глобального счётчика Яндекс.Метрики. Если не хотите делиться статистикой, установите в false
   globalCounterId: 21722287,
   // Идентификатор личного счётчика Яндекс.Метрики. Установите, если хотите получать статистику по своему сайту.
-  localCounterId: false
+  localCounterId: false,
+  // Откуда берутся слайды
+  slidePath: "http://showalert.org/slides"
 };
 
 lk.stat = {
@@ -805,7 +807,7 @@ lk.manual.nav = function(dir) {
     return;
 
     var step = d.getElementById('lkr-step');
-    d.getElementById('lkr-slide').src = 'img/'+lk.manual.step+'.png';
+    d.getElementById('lkr-slide').src = lk.slidePath+'/'+lk.manual.step+'.png';
     d.getElementById('lkr-step').innerHTML = lk.manual.slide[lk.manual.step].html;
     next.innerHTML = 'Далее<span>' + lk.manual.slide[lk.manual.step].btntxt + '</span>';
     console.log(lk.manual.step);

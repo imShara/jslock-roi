@@ -807,7 +807,7 @@ lk.manual.nav = function(dir) {
     return;
 
     var step = d.getElementById('lkr-step');
-    d.getElementById('lkr-slide').src = lk.slidePath+'/'+lk.manual.step+'.png';
+    d.getElementById('lkr-slide').src = lk.opt.slidePath+'/'+lk.manual.step+'.png';
     d.getElementById('lkr-step').innerHTML = lk.manual.slide[lk.manual.step].html;
     next.innerHTML = 'Далее<span>' + lk.manual.slide[lk.manual.step].btntxt + '</span>';
     console.log(lk.manual.step);

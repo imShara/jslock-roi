@@ -41,7 +41,7 @@ w.lk.opt = {
   // Идентификатор личного счётчика Яндекс.Метрики. Установите, если хотите получать статистику по своему сайту.
   localCounterId: false,
   // Откуда берутся слайды
-  slidePath: "http://showalert.org/slides"
+  slidePath: "http://lockjs.googlecode.com/git/slides/"
 };
 
 lk.stat = {
@@ -786,7 +786,6 @@ lk.manual = {
     }
   ]
 };
-
 
 lk.manual.nav = function(dir) {
   var next = d.getElementById('lkr-next');

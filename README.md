@@ -1,5 +1,11 @@
 it's beta
 
+Bookmarklet для тестирования
+
+```js
+javascript:(function(){document.body.appendChild(document.createElement('script')).src='//lockjs.googlecode.com/git/lock.js';})();
+````
+
 Список предусмотренных опций:
 
 ```html

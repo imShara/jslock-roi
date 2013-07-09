@@ -1,5 +1,11 @@
 it's beta
 
+
+Примеры работы с разными настройками
+http://showalert.org
+http://showalert.org/macro.html
+
+
 Bookmarklet для тестирования
 
 ```js

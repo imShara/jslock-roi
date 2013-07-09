@@ -43,8 +43,12 @@ w.lk.opt = {
   onlyRusLang: false,
   // Идентификатор глобального счётчика Яндекс.Метрики. Если не хотите делиться статистикой, установите в false
   globalCounterId: 21722287,
-  // Идентификатор личного счётчика Яндекс.Метрики. Установите, если хотите получать статистику по своему сайту.
-  localCounterId: false,
+  // Настройки личного счётчика Яндекс.Метрики. Установите id, если хотите получать статистику по своему сайту.
+  localCounter: {
+    id: 0,
+    trackLinks:true,
+    accurateTrackBounce:true
+  },
   // Откуда берутся слайды
   slidePath: "//lockjs.googlecode.com/git/slides/"
 };
@@ -362,8 +366,8 @@ lk.html = '<div class="lkr-fill"></div>' +
 if (lk.opt.globalCounterId)
 lk.html += '<noscript><div><img src="//mc.yandex.ru/watch/' + lk.opt.globalCounterId + '" style="position:absolute; left:-9999px;" alt=""></div></noscript>';
 
-if (lk.opt.localCounterId)
-lk.html += '<noscript><div><img src="//mc.yandex.ru/watch/' + lk.opt.localCounterId + '" style="position:absolute; left:-9999px;" alt=""></div></noscript>';
+if (lk.opt.localCounter.id)
+lk.html += '<noscript><div><img src="//mc.yandex.ru/watch/' + lk.opt.localCounter.id + '" style="position:absolute; left:-9999px;" alt=""></div></noscript>';
 
 lk.html += '</div>';
 
@@ -802,17 +806,18 @@ lk.manual = {
 lk.manual.nav = function(dir) {
   var next = d.getElementById('lkr-next');
   var back = d.getElementById('lkr-back');
+  var slides = lk.manual.slide.length;
 
   if (lk.manual.step == 0 && dir > 0)
     rmClass(back, 'lkr-off');
   else if (lk.manual.step == 1 && dir < 0)
     addClass(back, 'lkr-off');
-  else if (lk.manual.step == lk.manual.slide.length-2 && dir > 0)
+  else if (lk.manual.step == slides-2 && dir > 0)
     addClass(next, 'lkr-off');
-  else if (lk.manual.step == lk.manual.slide.length-1 && dir < 0)
+  else if (lk.manual.step == slides-1 && dir < 0)
     rmClass(next, 'lkr-off');
   
-  if (lk.manual.step+dir >= 0 && lk.manual.step+dir <= lk.manual.slide.length-1)
+  if (lk.manual.step+dir >= 0 && lk.manual.step+dir <= slides-1)
     lk.manual.step += dir;
   else 
     return;
@@ -828,6 +833,12 @@ lk.manual.nav = function(dir) {
       next.innerHTML = 'Далее<span>' + btntxt + '</span>';
     }
 
+    for (i=1; i < 4; i++) {
+      if (lk.manual.slide[lk.manual.step+i] && !lk.manual.slide[lk.manual.step+i].img) {
+        lk.manual.slide[lk.manual.step+i].img = new Image();
+        lk.manual.slide[lk.manual.step+i].img.src = lk.opt.slidePath+'/'+(lk.manual.step+i)+'.png';
+      }
+    }
 
     // get man deep for metrics
     if (lk.stat.showedSteps + dir > lk.stat.showedSteps)
@@ -851,7 +862,7 @@ lk.sendStat = function(params) {
   if (lk.opt.globalCounterId)
     globalCounter.params(params);
 
-  if (lk.opt.localCounterId)
+  if (lk.opt.localCounter.id)
     localCounter.params(params);
 };
 
@@ -861,7 +872,7 @@ if (lk.opt.globalCounterId) {
   };
 }
 
-if (lk.opt.localCounterId) {
+if (lk.opt.localCounter.id) {
   var localCounter = {
       params: function (params) {}
   };
@@ -874,17 +885,15 @@ if (lk.opt.localCounterId) {
           if (lk.opt.globalCounterId) {
             globalCounter = new Ya.Metrika({
                 id: lk.opt.globalCounterId,
-                trackLinks:true
+                trackLinks:true,
+                accurateTrackBounce:true
             });
             globalCounter.params({visit: true});
           }
           lk.sendStat({visit:true});
 
-          if (lk.opt.localCounterId) {
-            localCounter = new Ya.Metrika({
-                id: lk.opt.globalCounterId,
-                trackLinks:true
-            });
+          if (lk.opt.localCounter.id) {
+            localCounter = new Ya.Metrika(lk.optlocalCounter);
             localCounter.params({visit: true});
           }
         } catch(e) { }
@@ -951,7 +960,7 @@ documentReady(function(){
         lk.sendStat({skip:true});
       }
 
-      lk.sendStat({stats:lk.stat});
+      lk.sendStat({stats:lk.stat.showedSteps});
 
     };
   }

@@ -490,7 +490,7 @@ lk.css = ' .lkr-body * {margin:0; padding:0;}' +
   'font-size: 0.8em;' +
   'overflow: hidden;' +
   '}' +
-  'html .lkr-progress {' +
+  'div.lkr-progress {' +
   'margin: 20px 5% 40px 5%;' +
   'width: 90%;' +
   'height: 46px;' +

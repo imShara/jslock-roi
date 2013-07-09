@@ -328,7 +328,7 @@ lk.html = '<div class="lkr-fill"></div>' +
       '<div class="lkr-stat"><span id="lkr-votes">?</span> из 100.000 подписей собрано</div>' +
     '</div>' +
     ((lk.opt.showMessage) ? '<div class="lkr-info">' + ((lk.opt.customMessage) ? lk.opt.customMessage : lk.message) + '</div>' : '') +
-    ((lk.opt.customMessage) ? '<div class="lkr-man">' +
+    ((lk.opt.showManual) ? '<div class="lkr-man">' +
     '<img id="lkr-slide" src="">' +
     '<div id="lkr-nav">' +
       '<div class="lkr-btn lkr-off" id="lkr-back">Назад</div>' +
@@ -355,7 +355,7 @@ lk.html = '<div class="lkr-fill"></div>' +
       '<a href="javascript:void(0)" id="lkr-b"></a>' +
     '</div>' +
     '<div class="lkr-note">Разместите это обращение на личном сайте, вставив данный код в любую часть страницы</div>' +
-    '<div class="lkr-note"><span class="lkr-mark">&lt;script src="//xxxxxxxxxxxxxxxxxxxxx/lock.js"&gt;&lt;/script&gt;</span> Исходный код скрипта на GitHub</div>' +
+    '<div class="lkr-note"><span class="lkr-mark">&lt;script src="//lockjs.googlecode.com/git/lock.js"&gt;&lt;/script&gt;</span> Исходный код скрипта на GitHub</div>' +
     '<div class="lkr-note lkr-about">По всем вопросам обращайтесь на Email: block.runet@gmail.com</div>' +
   '</div>';
 

@@ -24,7 +24,7 @@ w.lk.opt = {
   // Адрес, который публикует пользователь в соцсетях. Якорь #block заставляет показать страницу блокировки в любом случае
   shareURL: 'http://showalert.org/#block',  
   // Ссылка на изображение, которое публикует пользователь в соцсетях
-  shareImg: 'http://showalert.org/attention.png',
+  shareImg: 'http://showalert.org/lock.png',
   // Заголовок поста, который публикует пользователь в соцсетях
   shareTitle: 'Интернет-свобода под угрозой!',
   // Текст, который публикует пользователь в соцсетях 140 символов
@@ -885,8 +885,6 @@ if (lk.opt.localCounterId) {
         d.addEventListener("DOMContentLoaded", f, false);
     } else { f(); }
 })();
-
-
 
 documentReady(function(){
 

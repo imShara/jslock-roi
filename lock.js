@@ -935,17 +935,19 @@ documentReady(function(){
 
     d.getElementById('lkr-nav').onclick = function(e) {
       if (!e) e = w.event;
-      if ((e.target || e.srcElement).id == 'lkr-next' || (e.target || e.srcElement).parentNode.id == 'lkr-next')
+      var target = e.target || e.srcElement;
+      if (target.id == 'lkr-next' || target.parentNode.id == 'lkr-next')
         lk.manual.nav(1);
-      else if ((e.target || e.srcElement).id == 'lkr-back' || (e.target || e.srcElement).parentNode.id == 'lkr-back')
+      else if (target.id == 'lkr-back' || target.parentNode.id == 'lkr-back')
         lk.manual.nav(-1);
     };
   }
 
   d.getElementById('lkr-share').onclick = function(e) {
     if (!e) e = w.event;
-    if ((e.target || e.srcElement).tagName == "A")
-      lk.share((e.target || e.srcElement).id.substr(4, this.length));
+    var target = e.target || e.srcElement;
+    if (target.tagName == "A")
+      lk.share(target.id.substr(4, this.length));
   };
 
   if (!lk.opt.thereIsNoFuture) {

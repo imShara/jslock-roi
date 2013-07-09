@@ -416,14 +416,14 @@ lk.css = ' .lkr-body * {margin:0; padding:0;}' +
   'background: #111111;' +
   'z-index: 999998;' +
 '}' +
-'.lkr-body {' +
+'html .lkr-body {' +
   'position: absolute;' +
   'background: #111111;' +
   'top: 0;' +
   'left: 0;' +
   'width: 100%;' +
   'color: #c9ccd4;' +
-  'font-size: 100%;' +
+  'font-size: 16px;' +
   'font-family: Verdana, sans-serif;' +
   'z-index: 999999;' +
   'text-align: left;' +

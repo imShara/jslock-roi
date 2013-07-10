@@ -359,7 +359,7 @@ lk.html = '<div class="lkr-fill"></div>' +
       '<a href="javascript:void(0)" id="lkr-b"></a>' +
     '</div>' +
     '<div class="lkr-note">Разместите это обращение на личном сайте, вставив данный код в любую часть страницы</div>' +
-    '<div class="lkr-note"><span class="lkr-mark">&lt;script src="//lockjs.googlecode.com/git/lock.js"&gt;&lt;/script&gt;</span> Исходный код скрипта <a target="_blank" href="https://github.com/imShara/jslock-roi"></a>на GitHub</a></div>' +
+    '<div class="lkr-note"><span class="lkr-mark">&lt;script src="//lockjs.googlecode.com/git/lock.js"&gt;&lt;/script&gt;</span> Исходный код скрипта <a target="_blank" href="https://github.com/imShara/jslock-roi">на GitHub</a></div>' +
     '<div class="lkr-note lkr-about">По всем вопросам обращайтесь на Email: block.runet@gmail.com</div>' +
   '</div>';
 
@@ -703,7 +703,7 @@ lk.manual = {
   method: '',
   slide: [
     {
-      html:   '<div class="lkr-act">1. Зайдите на сайт <a href="http://gosuslugi.ru">gosuslugi.ru</a> и начните регистрацию</div>' +
+      html:   '<div class="lkr-act">1. Зайдите на сайт <a target="_blank" href="http://gosuslugi.ru">gosuslugi.ru</a> и начните регистрацию</div>' +
               '<p>Для голосования на сайте &#171;Российская Общественная Инициатива&#187; (сокращённо РОИ) необходимо зарегистрироваться на портале &#171;Госуслуги&#187;. Чтобы начать регистрацию, зайдите на <a target="_blank" href="https://www.gosuslugi.ru/">главную страницу</a> портала &#171;Госуслуги&#187; и нажмите кнопку &#171;Регистрация&#187; в правом верхнем углу.</p>' +
               '<p>Если у вас уже есть учётная запись на портале &#171;Госуслуги&#187;, вы можете переходить к шагу &#171;Авторизация на сайте РОИ&#187;.</p>'
     },{
@@ -732,7 +732,7 @@ lk.manual = {
                   '<ul>' +
                     '<li>Не надо ждать, код можно получить уже в день регистрации за один визит.</li>' +
                     '<li>Обратите внимание, что такие центры есть не во всех населённых пунктах.</li>' +
-                    '<li>Обязательно <a href="http://www.gosuslugi.ru/pgu/maps">убедитесь</a>, что у вас есть возможность добраться до такого центра.</li>' +
+                    '<li>Обязательно <a target="_blank" href="http://www.gosuslugi.ru/pgu/maps">убедитесь</a>, что у вас есть возможность добраться до такого центра.</li>' +
                   '</ul>' +
                 '</li>' +
               '</ul>'

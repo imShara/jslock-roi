@@ -58,7 +58,7 @@ javascript:(function(){document.body.appendChild(document.createElement('script'
     // Якорь #block заставляет показать страницу блокировки в любом случае
     shareURL: 'http://showalert.org/#block',  
     // Ссылка на изображение, которое публикует пользователь в соцсетях
-    shareImg: 'http://showalert.org/lock.png',
+    shareImg: '//lockjs.googlecode.com/git/images/lock.png',
     // Заголовок поста, который публикует пользователь в соцсетях
     shareTitle: 'Интернет-свобода под угрозой! Подпишите официальную петицию!',
     // Текст, который публикует пользователь (до 140 символов)

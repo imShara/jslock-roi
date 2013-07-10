@@ -4,29 +4,21 @@
 [С собственным текстом обращения](http://showalert.org/custom.html)  
   
 
-
-
-
 Для добавления страницы блокировки, просто встатьте данный код в любое место на всех страницах вашего сайта:
-
 ```html
 <script src="//lockjs.googlecode.com/git/lock.js"></script>
 ```
   
-
-
-
+  
 Bookmarklet для тестирования, чтобы посмотреть как будет выглядеть страница на вашем сайте.  
 Создайте в браузере новую закладку и вместо адреса сайта, вставьте этот код. Потом зайдите на свой сайт и нажмите на эту закладку. Код будет однократно запущен. В случае, если вы обнаружили проблему с отображением - напишите issue или отправьте письмо на block.runet@gmail.com:
-
 ```js
 javascript:(function(){document.body.appendChild(document.createElement('script')).src='//lockjs.googlecode.com/git/lock.js';})();
 ````
-
+  
 
 Вы можете настроить страницу блокировки по своему усмотрению, добавив перед включением тега кода опции.  
 Например так:
-
 ```html
 <script>
   window.LOCKR_SETTINGS = {
@@ -38,11 +30,9 @@ javascript:(function(){document.body.appendChild(document.createElement('script'
 </script>
 <script src="//lockjs.googlecode.com/git/lock.js"></script>
 ```
-
-
+  
 
 Список предусмотренных опций:
-
 ```html
 <script>
   window.LOCKR_SETTINGS = {
@@ -101,21 +91,21 @@ javascript:(function(){document.body.appendChild(document.createElement('script'
 </script>
 ```
   
-  
 
->"Когда они пришли за коммунистами, я молчал — я не был коммунистом.  
+  
+  
+>Когда они пришли за коммунистами, я молчал — я не был коммунистом.  
 Когда они пришли за социал-демократами, я молчал — я не был социал-демократом.  
 Когда они пришли за профсоюзными активистами, я молчал — я не был членом профсоюза.  
 Когда они пришли за мной — уже некому было заступиться за меня.  
-[Мартин Нимёллер](http://ru.wikipedia.  org/wiki/%D0%9A%D0%BE%D0%B3%D0%B4%D0%B0_%D0%BE%D0%BD%D0%B8_%D0%BF%D1%80%D0%B8%D1%88%D0%BB%D0%B8%E2%80%A6)"
+[Мартин Нимёллер](http://ru.wikipedia.  org/wiki/%D0%9A%D0%BE%D0%B3%D0%B4%D0%B0_%D0%BE%D0%BD%D0%B8_%D0%BF%D1%80%D0%B8%D1%88%D0%BB%D0%B8%E2%80%A6)
   
-
-
-
-
-Ссылки по теме:
-[Текст Закона № 187-ФЗ](http://base.consultant.ru/cons/cgi/online.cgi?req=doc;base=LAW;n=148497)
-[JS скрипт для протестной блокировки сайта. C таймером и лайками.](http://habrahabr.ru/post/185174/)
-[100.000 подписей собрано (прим. на onlinepetition.ru), что дальше? Российская Общественная Инициатива!](http://habrahabr.ru/post/185554/)
-[Проект РосКомСвобода](http://rublacklist.net/)
-[Ассоциация пользователей интернета](http://freerunet.ru/)
+  
+  
+  
+Ссылки по теме:  
+[Текст Закона № 187-ФЗ](http://base.consultant.ru/cons/cgi/online.cgi?req=doc;base=LAW;n=148497)  
+[JS скрипт для протестной блокировки сайта. C таймером и лайками.](http://habrahabr.ru/post/185174/)  
+[100.000 подписей собрано (прим. на onlinepetition.ru), что дальше? Российская Общественная Инициатива!](http://habrahabr.ru/post/185554/)  
+[Проект РосКомСвобода](http://rublacklist.net/)  
+[Ассоциация пользователей интернета](http://freerunet.ru/)  

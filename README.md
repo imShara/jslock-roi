@@ -7,7 +7,7 @@
 Для добавления страницы блокировки, просто встатьте данный код в любое место на всех страницах вашего сайта:
 
 ```html
-<script src="//lockjs.googlecode.com/git/lock.js"></script>
+<script src="//lockjs.googlecode.com/git/lock.min.js"></script>
 ```
   
   

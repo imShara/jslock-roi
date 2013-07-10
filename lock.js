@@ -24,7 +24,7 @@ w.lk.opt = {
   // Адрес, который публикует пользователь в соцсетях. Якорь #block заставляет показать страницу блокировки в любом случае
   shareURL: 'http://showalert.org/#block',  
   // Ссылка на изображение, которое публикует пользователь в соцсетях
-  shareImg: 'http://showalert.org/lock.png',
+  shareImg: '//lockjs.googlecode.com/git/images/lock.png',
   // Заголовок поста, который публикует пользователь в соцсетях
   shareTitle: 'Интернет-свобода под угрозой!',
   // Текст, который публикует пользователь в соцсетях 140 символов
@@ -413,7 +413,6 @@ lk.css = ' .lkr-body * {margin:0; padding:0;}' +
 '}' +
 'html .lkr-body {' +
   'position: absolute;' +
-  'background: #111111;' +
   'top: 0;' +
   'left: 0;' +
   'width: 100%;' +

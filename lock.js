@@ -7,7 +7,7 @@ var h = d.head || d.getElementsByTagName('head')[0];
 
 w.lk.opt = {
   // Время блокировки кнопки "Продолжить работу"
-  time: 15,
+  time: 5,
   // Показывать скрипт каждый раз
   showEverytime: false,
   // Не показывать кнопку продолжить :(

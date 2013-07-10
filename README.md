@@ -1,11 +1,11 @@
 Примеры работы с разными настройками  
 [Дефолтные настройки, установлено название сайта](http://showalert.org)  
 [С отключенными подробностями и кнопкой "продолжить"](http://showalert.org/macro.html)  
-[С собственным текстом обращения](http://showalert.org/custom.html)
+[С собственным текстом обращения](http://showalert.org/custom.html)  
 [С картинкой на бэкграунде](http://showalert.org/bgimage.html)
-  
 
 Для добавления страницы блокировки, просто встатьте данный код в любое место на всех страницах вашего сайта:
+
 ```html
 <script src="//lockjs.googlecode.com/git/lock.js"></script>
 ```

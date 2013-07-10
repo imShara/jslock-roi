@@ -26,10 +26,10 @@ javascript:(function(){document.body.appendChild(document.createElement('script'
     // Меняем время блокировки
     time: 15, 
     // Название сайта в заголовке
-    siteName: 'Хабрахрабр',
+    siteName: 'Хабрахрабр'
   };
 </script>
-<script src="//lockjs.googlecode.com/git/lock.js"></script>
+<script src="//lockjs.googlecode.com/git/lock.min.js"></script>
 ```
   
 
@@ -85,7 +85,6 @@ javascript:(function(){document.body.appendChild(document.createElement('script'
 		trackLinks:true,
 		accurateTrackBounce:true
 	},
-    localCounterId: false,
     // Откуда берутся слайды
     slidePath: "//lockjs.googlecode.com/git/slides/"
   };
@@ -96,7 +95,7 @@ javascript:(function(){document.body.appendChild(document.createElement('script'
 Для настройки внешнего вида, можете добавить CSS выражения.
 Например так:
 ```html
-<script src="//lockjs.googlecode.com/git/lock.js"></script>
+<script src="//lockjs.googlecode.com/git/lock.min.js"></script>
 <style type="text/css">
 	.lkr-fill {
 		background: #111111 url(//lockjs.googlecode.com/git/images/bg.png) repeat-x;

@@ -202,7 +202,7 @@ lk.applySettings(w.LOCKR_SETTINGS);
 
 var isExpires   = lk.opt.deadline && +new Date() > lk.opt.deadline;
 var isRussian   = /^ru/.test(navigator.language);
-var isOperaMini = navigator.userAgent.indexOf('Opera Mini') > -1;
+var isOperaMini = (navigator.userAgent.indexOf('Opera Mini') > -1);
 var isBlock     = w.location.hash == '#block'
 var isSeenOld   = getStorage('alreadyseenlock');
 var isSeenRoi   = getStorage('roi_alreadyseenlock');
@@ -304,7 +304,7 @@ lk.votes = function(votes){
 };
 
 lk.message = '<div class="lkr-h">Что случилось?</div>' +
-'<p>21 июня Государственная Дума РФ <a target="_blank" href="http://lenta.ru/news/2013/06/21/piracylaw/">почти единогласно</a> и в кратчайшие сроки <a target="_blank" href="http://base.consultant.ru/cons/cgi/online.cgi?req=doc;base=LAW;n=148497">приняла закон № 187-ФЗ</a>, широко известный как «антипиратский закон» или «закон о произвольной блокировке» или «русская <a target="_blank" href="http://ru.wikipedia.org/wiki/Stop_Online_Piracy_Act">SOPA</a>». Блокирование будет производиться на стороне Российских провайдеров, смена доменного имени сайта или переезд серверов за границу РФ не поможет восстановить доступ к ресурсу.</p>' +
+'<p>21 июня Государственная Дума РФ <a target="_blank" href="http://lenta.ru/news/2013/06/21/piracylaw/">почти единогласно</a> и в кратчайшие сроки <a target="_blank" href="http://base.consultant.ru/cons/cgi/online.cgi?req=doc;base=LAW;n=148497">приняла закон № 187-ФЗ</a>, широко известный как «антипиратский закон» или «закон о произвольной блокировке» или «русская <a target="_blank" href="http://ru.wikipedia.org/wiki/Stop_Online_Piracy_Act">SOPA</a>». Блокирование будет производиться на стороне Российских провайдеров, <b>смена доменного имени</b> сайта или <b>переезд серверов</b> за границу РФ <b>не поможет</b> восстановить доступ к ресурсу.</p>' +
 '<div class="lkr-h">Почему это плохо?</div>' + 
 '<p>Этот закон даёт широкие возможности для злоупотреблений и недобросовестной конкурентной борьбы, когда злоумышленник может на любом сайте оставить комментарий со ссылкой на пиратский контент, что приведет к закрытию такого интернет-ресурса. Таким образом, под угрозой блокировки оказываются блоги, поисковики, принцип работы которых не позволяет устраивать предварительную модерацию выдачи, публичные торрент трекеры, файловые хранилища, видеохостинги, социальные сети, СМИ. Текст закона противоречит <a target="_blank" href="http://ru.wikipedia.org/wiki/%D0%92%D0%B5%D0%B1_2.0">принципам работы</a> современного свободного интернета.</p>' +
 '<p>Более того, из-за технических особенностей организации Сети и невозможности провайдеров блокировать исключительно страницы с контентом, на который подана жалоба правообладателя, ограничение доступа будет распространяться на все ресурсы находящиеся на данном <a target="_blank" href="http://ru.wikipedia.org/wiki/IP-%D0%B0%D0%B4%D1%80%D0%B5%D1%81">IP-адресе</a> (они могут исчисляться <a target="_blank" href="http://habrastorage.org/storage2/39a/1e1/cc5/39a1e1cc541754eee30f8ca06710a217.png">тысячами</a>).</p>' +

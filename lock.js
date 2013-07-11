@@ -24,7 +24,7 @@ w.lk.opt = {
   // Адрес, который публикует пользователь в соцсетях. Якорь #block заставляет показать страницу блокировки в любом случае
   shareURL: 'http://showalert.org/#block',  
   // Ссылка на изображение, которое публикует пользователь в соцсетях
-  shareImg: '//lockjs.googlecode.com/git/images/lock.png',
+  shareImg: '//cdn.jsdelivr.net/jslock/images/lock.png',
   // Заголовок поста, который публикует пользователь в соцсетях
   shareTitle: 'Интернет-свобода под угрозой!',
   // Текст, который публикует пользователь в соцсетях 140 символов
@@ -50,7 +50,7 @@ w.lk.opt = {
     accurateTrackBounce:true
   },
   // Откуда берутся слайды
-  slidePath: "//lockjs.googlecode.com/git/slides/"
+  slidePath: "//cdn.jsdelivr.net/jslock/slides/"
 };
 
 lk.stat = {
@@ -359,7 +359,7 @@ lk.html = '<div class="lkr-fill"></div>' +
       '<a href="javascript:void(0)" id="lkr-b"></a>' +
     '</div>' +
     '<div class="lkr-note">Разместите это обращение на личном сайте, вставив данный код в любую часть страницы</div>' +
-    '<div class="lkr-note"><span class="lkr-mark">&lt;script src="//lockjs.googlecode.com/git/lock.min.js"&gt;&lt;/script&gt;</span> Исходный код скрипта <a target="_blank" href="https://github.com/imShara/jslock-roi">на GitHub</a></div>' +
+    '<div class="lkr-note"><span class="lkr-mark">&lt;script src="//cdn.jsdelivr.net/jslock/lock.min.js"&gt;&lt;/script&gt;</span> Исходный код скрипта <a target="_blank" href="https://github.com/imShara/jslock-roi">на GitHub</a></div>' +
     '<div class="lkr-note lkr-about">По всем вопросам обращайтесь на Email: block.runet@gmail.com</div>' +
   '</div>';
 
@@ -927,7 +927,7 @@ documentReady(function(){
 
   d.getElementById('lkr-body').style.marginTop = getScroll()+'px';
 
-  jsonp("//lockjs.googlecode.com/git/votes.js");
+  jsonp("//cdn.jsdelivr.net/jslock/votes.js");
 
   if (lk.opt.showManual) {
     lk.manual.nav(0);

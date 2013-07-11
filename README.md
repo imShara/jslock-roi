@@ -13,7 +13,7 @@
 Для добавления страницы блокировки, просто встатьте данный код в любое место на всех страницах вашего сайта:
 
 ```html
-<script src="//cdn.jsdelivr.net/jslock/lock.min.js"></script>
+<script src="//cdn.jsdelivr.net/jslock/lock.min.js" charset="UTF-8"></script>
 ```
   
   

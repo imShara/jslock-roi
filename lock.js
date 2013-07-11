@@ -303,16 +303,17 @@ lk.votes = function(votes){
 
 };
 
-lk.message = '<div class="lkr-h">Что случилось?</div>' +
-'<p>21 июня Государственная Дума РФ <a target="_blank" href="http://lenta.ru/news/2013/06/21/piracylaw/">почти единогласно</a> и в кратчайшие сроки <a target="_blank" href="http://base.consultant.ru/cons/cgi/online.cgi?req=doc;base=LAW;n=148497">приняла закон № 187-ФЗ</a>, широко известный как «антипиратский закон» или «закон о произвольной блокировке» или «русская <a target="_blank" href="http://ru.wikipedia.org/wiki/Stop_Online_Piracy_Act">SOPA</a>». Блокирование будет производиться на стороне Российских провайдеров, <b>смена доменного имени</b> сайта или <b>переезд серверов</b> за границу РФ <b>не поможет</b> восстановить доступ к ресурсу.</p>' +
-'<div class="lkr-h">Почему это плохо?</div>' + 
-'<p>Этот закон даёт широкие возможности для злоупотреблений и недобросовестной конкурентной борьбы, когда злоумышленник может на любом сайте оставить комментарий со ссылкой на пиратский контент, что приведет к закрытию такого интернет-ресурса. Таким образом, под угрозой блокировки оказываются блоги, поисковики, принцип работы которых не позволяет устраивать предварительную модерацию выдачи, публичные торрент трекеры, файловые хранилища, видеохостинги, социальные сети, СМИ. Текст закона противоречит <a target="_blank" href="http://ru.wikipedia.org/wiki/%D0%92%D0%B5%D0%B1_2.0">принципам работы</a> современного свободного интернета.</p>' +
-'<p>Более того, из-за технических особенностей организации Сети и невозможности провайдеров блокировать исключительно страницы с контентом, на который подана жалоба правообладателя, ограничение доступа будет распространяться на все ресурсы находящиеся на данном <a target="_blank" href="http://ru.wikipedia.org/wiki/IP-%D0%B0%D0%B4%D1%80%D0%B5%D1%81">IP-адресе</a> (они могут исчисляться <a target="_blank" href="http://habrastorage.org/storage2/39a/1e1/cc5/39a1e1cc541754eee30f8ca06710a217.png">тысячами</a>).</p>' +
-'<div class="lkr-h"><a target="_blank" href="http://ru.wikipedia.org/wiki/Когда_они_пришли…">А я здесь при чём?</a></div>' + '<p>Компаниями <a target="_blank" href="http://clubs.ya.ru/company/replies.xml?item_no=67927">Яндекс</a>, <a target="_blank" href="http://googlerussiablog.blogspot.ru/2013/06/google.html">Google</a>, Российской ассоциацией электронных коммуникаций (<a target="_blank" href="http://raec.ru/times/detail/2625/">РАЭК</a>) были предложены поправки к закону, исключающие возможность ложной блокировки не причастных к нелегальной деятельности ресурсов, но Государственной Думой они <a target="_blank" href="http://habrahabr.ru/company/yandex/blog/184182/#comment_6402274">учтены не были</a>.</p>' +
-'<p>Может сложиться иллюзия, что ограничения доступа можно обойти техническими средствами. Это не так. Не стоит надеяться на программистов. В случае, если законы подобного уровня проработки будут приниматься дальше, ничто не помешает запретить анонимные cистемы обмена информацией, такие как <a target="_blank" href="http://ru.wikipedia.org/wiki/I2P">I2P</a> или <a target="_blank" href="http://ru.wikipedia.org/wiki/Tor">TOR</a>, ввести лицензирование <a target="_blank" href="http://ru.wikipedia.org/wiki/VPN">VPN</a> и шифрованных туннелей. Если это допустить, то Интернет потеряет независимость.</p>' +
-'<div class="lkr-h">Что можно сделать?</div>' + '<p>Ассоциацией пользователей интернета совместно с проектом <a target="_blank" href="http://rublacklist.net/">РосКомСвобода</a> на сайте «Российская общественная инициатива» был организован <a target="_blank" href="https://www.roi.ru/poll/petition/gosudarstvennoe_upravlenie1/otmenit-zakon-o-proizvolnyh-blokirovkah-internet-resursov-ot-02072013-187-fz-zakon-protiv-interneta/">сбор подписей</a> за отмену этого закона. Если под обращением удастся набрать 100.000 подписей, то эта инициатива будет рассмотрена государственными органами. Если вы согласны с тем, что в таком виде этот закон не должен существовать, пожалуйста, поставьте свою подпись под петицией и расскажите всем-всем-всем <span class="lkr-mark">#ЗаконПротивИнтернета</span></p>' +
-'<div class="lkr-h">Как голосовать?</div>' + 
-'<p>Регистрация на этом сайте считается трудным делом, поэтому мы написали подробную иллюстрированную инструкцию, которая поможет вам легко зарегистрироваться и проголосовать.</p>'
+lk.message = '<div class="lkr-h" show="q1">Что случилось?</div>' +
+'<p class="descr q1">21 июня Государственная Дума РФ <a target="_blank" href="http://lenta.ru/news/2013/06/21/piracylaw/">почти единогласно</a> и в кратчайшие сроки <a target="_blank" href="http://base.consultant.ru/cons/cgi/online.cgi?req=doc;base=LAW;n=148497">приняла закон № 187-ФЗ</a>, широко известный как «антипиратский закон» или «закон о произвольной блокировке» или «русская <a target="_blank" href="http://ru.wikipedia.org/wiki/Stop_Online_Piracy_Act">SOPA</a>». Блокирование будет производиться на стороне Российских провайдеров, <b>смена доменного имени</b> сайта или <b>переезд серверов</b> за границу РФ <b>не поможет</b> восстановить доступ к ресурсу.</p>' +
+'<div class="lkr-h" show="q2">Почему это плохо?</div>' +
+'<p class="descr q2">Этот закон даёт широкие возможности для злоупотреблений и недобросовестной конкурентной борьбы, когда злоумышленник может на любом сайте оставить комментарий со ссылкой на пиратский контент, что приведет к закрытию такого интернет-ресурса. Таким образом, под угрозой блокировки оказываются блоги, поисковики, принцип работы которых не позволяет устраивать предварительную модерацию выдачи, публичные торрент трекеры, файловые хранилища, видеохостинги, социальные сети, СМИ. Текст закона противоречит <a target="_blank" href="http://ru.wikipedia.org/wiki/%D0%92%D0%B5%D0%B1_2.0">принципам работы</a> современного свободного интернета.</p>' +
+'<p class="descr q2">Более того, из-за технических особенностей организации Сети и невозможности провайдеров блокировать исключительно страницы с контентом, на который подана жалоба правообладателя, ограничение доступа будет распространяться на все ресурсы находящиеся на данном <a target="_blank" href="http://ru.wikipedia.org/wiki/IP-%D0%B0%D0%B4%D1%80%D0%B5%D1%81">IP-адресе</a> (они могут исчисляться <a target="_blank" href="http://habrastorage.org/storage2/39a/1e1/cc5/39a1e1cc541754eee30f8ca06710a217.png">тысячами</a>).</p>' +
+'<div class="lkr-h" show="q3">А я здесь при чём? <a target="_blank" href="http://ru.wikipedia.org/wiki/Когда_они_пришли…">(Когда они пришли...)</a></div>' +
+'<p class="descr q3">Компаниями <a target="_blank" href="http://clubs.ya.ru/company/replies.xml?item_no=67927">Яндекс</a>, <a target="_blank" href="http://googlerussiablog.blogspot.ru/2013/06/google.html">Google</a>, Российской ассоциацией электронных коммуникаций (<a target="_blank" href="http://raec.ru/times/detail/2625/">РАЭК</a>) были предложены поправки к закону, исключающие возможность ложной блокировки не причастных к нелегальной деятельности ресурсов, но Государственной Думой они <a target="_blank" href="http://habrahabr.ru/company/yandex/blog/184182/#comment_6402274">учтены не были</a>.</p>' +
+'<p class="descr q3">Может сложиться иллюзия, что ограничения доступа можно обойти техническими средствами. Это не так. Не стоит надеяться на программистов. В случае, если законы подобного уровня проработки будут приниматься дальше, ничто не помешает запретить анонимные cистемы обмена информацией, такие как <a target="_blank" href="http://ru.wikipedia.org/wiki/I2P">I2P</a> или <a target="_blank" href="http://ru.wikipedia.org/wiki/Tor">TOR</a>, ввести лицензирование <a target="_blank" href="http://ru.wikipedia.org/wiki/VPN">VPN</a> и шифрованных туннелей. Если это допустить, то Интернет потеряет независимость.</p>' +
+'<div class="lkr-h" show="q4">Что можно сделать?</div>' + '<p class="descr q4">Ассоциацией пользователей интернета совместно с проектом <a target="_blank" href="http://rublacklist.net/">РосКомСвобода</a> на сайте «Российская общественная инициатива» был организован <a target="_blank" href="https://www.roi.ru/poll/petition/gosudarstvennoe_upravlenie1/otmenit-zakon-o-proizvolnyh-blokirovkah-internet-resursov-ot-02072013-187-fz-zakon-protiv-interneta/">сбор подписей</a> за отмену этого закона. Если под обращением удастся набрать 100.000 подписей, то эта инициатива будет рассмотрена государственными органами. Если вы согласны с тем, что в таком виде этот закон не должен существовать, пожалуйста, поставьте свою подпись под петицией и расскажите всем-всем-всем <span class="lkr-mark">#ЗаконПротивИнтернета</span></p>' +
+'<div class="lkr-h" show="q5">Как голосовать?</div>' +
+'<p class="descr q5">Регистрация на этом сайте считается трудным делом, поэтому мы написали подробную иллюстрированную инструкцию, которая поможет вам легко зарегистрироваться и проголосовать.</p>'
 
 lk.html = '<div class="lkr-fill"></div>' +
 '<div id="lkr-body" class="lkr-body">' +
@@ -332,7 +333,7 @@ lk.html = '<div class="lkr-fill"></div>' +
       '<a class="lkr-stat" target="_blank" href="' + lk.opt.voteURL + '"><span id="lkr-votes">?</span> из 100.000 подписей собрано</a>' +
     '</div>' +
     ((lk.opt.showMessage) ? '<div class="lkr-info">' + ((lk.opt.customMessage) ? lk.opt.customMessage : lk.message) + '</div>' : '') +
-    ((lk.opt.showManual) ? '<div class="lkr-man">' +
+    ((lk.opt.showManual) ? '<div class="lkr-man descr q5">' +
     '<img id="lkr-slide" src="">' +
     '<div id="lkr-nav">' +
       '<div class="lkr-btn lkr-off" id="lkr-back">Назад</div>' +
@@ -431,12 +432,16 @@ lk.css = ' .lkr-body * {margin:0; padding:0;}' +
   'background-color: #202020 !important;' +
   'padding: 2px;' +
 '}' +
+'.descr {' +
+  'display: none;' +
+'}'	+
 '.lkr-h {' +
   'color: #e8ebf3;' +
   'font-size: 1.6em;' +
   'font-family: Georgia, serif;' +
   'text-align: center;' +
   'margin: 30px 0  10px 0;' +
+  'cursor: pointer;' +
 '}' +
 '.lkr-body a {' +
   'border: none !important;' +
@@ -974,6 +979,16 @@ documentReady(function(){
       lk.signed = true;
     }
   };
+	var elems= d.querySelectorAll('.lkr-h');
+	for (var i = 0, length = elems.length; i < length; i++) {
+		elems[i].onclick=function(){
+			var elem=this.getAttribute('show');
+			var elements= d.querySelectorAll('.'+elem);
+			for (var i1 = 0, length = elements.length; i1 < length; i1++) {
+				elements[i1].style.display=elements[i1].style.display=='block'?'none':'block';
+			}
+		}
+	}
 
 });
 

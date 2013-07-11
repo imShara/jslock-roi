@@ -7,14 +7,14 @@
 Для добавления страницы блокировки, просто встатьте данный код в любое место на всех страницах вашего сайта:
 
 ```html
-<script src="//lockjs.googlecode.com/git/lock.min.js"></script>
+<script src="//cdn.jsdelivr.net/jslock/lock.min.js"></script>
 ```
   
   
 Bookmarklet для тестирования, чтобы посмотреть как будет выглядеть страница на вашем сайте.  
 Создайте в браузере новую закладку и вместо адреса сайта, вставьте этот код. Потом зайдите на свой сайт и нажмите на эту закладку. Код будет однократно запущен. В случае, если вы обнаружили проблему с отображением - напишите issue или отправьте письмо на block.runet@gmail.com:
 ```js
-javascript:(function(){document.body.appendChild(document.createElement('script')).src='//lockjs.googlecode.com/git/lock.js';})();
+javascript:(function(){document.body.appendChild(document.createElement('script')).src='//cdn.jsdelivr.net/jslock/lock.js';})();
 ````
   
 
@@ -29,7 +29,7 @@ javascript:(function(){document.body.appendChild(document.createElement('script'
     siteName: 'Хабрахрабр'
   };
 </script>
-<script src="//lockjs.googlecode.com/git/lock.min.js"></script>
+<script src="//cdn.jsdelivr.net/jslock/lock.min.js"></script>
 ```
   
 
@@ -59,7 +59,7 @@ javascript:(function(){document.body.appendChild(document.createElement('script'
     // Якорь #block заставляет показать страницу блокировки в любом случае
     shareURL: 'http://showalert.org/#block',  
     // Ссылка на изображение, которое публикует пользователь в соцсетях
-    shareImg: '//lockjs.googlecode.com/git/images/lock.png',
+    shareImg: '//cdn.jsdelivr.net/jslock/images/lock.png',
     // Заголовок поста, который публикует пользователь в соцсетях
     shareTitle: 'Интернет-свобода под угрозой! Подпишите официальную петицию!',
     // Текст, который публикует пользователь (до 140 символов)
@@ -86,7 +86,7 @@ javascript:(function(){document.body.appendChild(document.createElement('script'
 		accurateTrackBounce:true
 	},
     // Откуда берутся слайды
-    slidePath: "//lockjs.googlecode.com/git/slides/"
+    slidePath: "//cdn.jsdelivr.net/jslock/slides/"
   };
 </script>
 ```
@@ -95,10 +95,10 @@ javascript:(function(){document.body.appendChild(document.createElement('script'
 Для настройки внешнего вида, можете добавить CSS выражения.
 Например так:
 ```html
-<script src="//lockjs.googlecode.com/git/lock.min.js"></script>
+<script src="//cdn.jsdelivr.net/jslock/lock.min.js"></script>
 <style type="text/css">
 	.lkr-fill {
-		background: #111111 url(//lockjs.googlecode.com/git/images/bg.png) repeat-x;
+		background: #111111 url(//cdn.jsdelivr.net/jslock/images/bg.png) repeat-x;
 	}
 </style>
 ```
@@ -108,7 +108,7 @@ javascript:(function(){document.body.appendChild(document.createElement('script'
 Когда они пришли за социал-демократами, я молчал — я не был социал-демократом.  
 Когда они пришли за профсоюзными активистами, я молчал — я не был членом профсоюза.  
 Когда они пришли за мной — уже некому было заступиться за меня.  
-[Мартин Нимёллер](http://ru.wikipedia.  org/wiki/%D0%9A%D0%BE%D0%B3%D0%B4%D0%B0_%D0%BE%D0%BD%D0%B8_%D0%BF%D1%80%D0%B8%D1%88%D0%BB%D0%B8%E2%80%A6)
+[Мартин Нимёллер](http://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%B3%D0%B4%D0%B0_%D0%BE%D0%BD%D0%B8_%D0%BF%D1%80%D0%B8%D1%88%D0%BB%D0%B8%E2%80%A6)
   
   
   

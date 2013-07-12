@@ -35,7 +35,7 @@ javascript:(function(){document.body.appendChild(document.createElement('script'
     siteName: 'Хабрахрабр'
   };
 </script>
-<script src="//cdn.jsdelivr.net/jslock/lock.min.js"></script>
+<script src="//cdn.jsdelivr.net/jslock/lock.min.js" charset="UTF-8"></script>
 ```
   
 

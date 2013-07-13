@@ -866,7 +866,7 @@ lk.sendStat = function(params) {
 };
 
 // addEventListener, работающий и в IE 6-8.
-lk.addEventListener = function( target, eventName, listener) {
+lk.addEventListener = function(target, eventName, listener) {
   if (target.addEventListener)
     target.addEventListener(eventName, listener, false)
   else if (target.attachEvent)
@@ -874,7 +874,7 @@ lk.addEventListener = function( target, eventName, listener) {
 }  
 
 // removeEventListener, работающий и в IE 6-8.
-lk.removeEventListener = function( target, eventName, listener) {
+lk.removeEventListener = function(target, eventName, listener) {
   if (target.removeEventListener)
     target.removeEventListener(eventName, listener, false)
   else if (target.detachEvent)
@@ -998,20 +998,19 @@ documentReady(function(){
   //
   // В Опере событие beforeunload не вызывается. Реализовать защиту нет возможности.
   //
-  var warningBeforeUnload = function( event)
-  {
+  var warningBeforeUnload = function(event) {
     var userAgent = navigator.userAgent.toLowerCase();
     var messagePrefix = "Не спешите уходить. Сайт всё же доступен. Пожалуйста, ";
     
     // Здесь в комментариях описан вид окна-сообщения, которое выдаёт браузер.
-    if( /chrome[ \/]/.test( userAgent)) {
+    if (/chrome[ \/]/.test(userAgent)) {
       // <возвращаемая строка>
       // Вы действительно хотите покинуть эту страницу?
       // [Покинуть эту страницу]  [Остаться на этой странице]
       
       return messagePrefix + "нажмите «Остаться на этой странице» и просмотрите страницу внимательнее.";
     }
-    else if( /webkit[ \/]/.test( userAgent)) {
+    else if (/webkit[ \/]/.test(userAgent)) {
       // Сафари
       
       // JavaScript
@@ -1021,7 +1020,7 @@ documentReady(function(){
       
       return messagePrefix + "нажмите «Остаться на странице» и просмотрите страницу внимательнее.";
     }
-    else if( / msie /.test( userAgent)) {
+    else if (/ msie /.test(userAgent)) {
       // MSIE 6, 7, 8
       
       // Вы действительно хотите уйти с этой страницы?
@@ -1041,11 +1040,11 @@ documentReady(function(){
       
       return messagePrefix + "нажмите «Остаться на этой странице» и просмотрите страницу внимательнее.";
     }
-    else if( userAgent.indexOf("compatible") < 0  &&  /mozilla/.test( userAgent)) {
+    else if (userAgent.indexOf("compatible") < 0  &&  /mozilla/.test(userAgent)) {
       // Огнелис. В сообщение, выдаваемое браузером, текст не добавить. Зато работает alert 
       // (в отличие от других браузеров). Приходится делать два сообщения друг за другом.
       event.preventDefault();
-      window.alert( messagePrefix +  
+      window.alert(messagePrefix +  
             "в следующем сообщении нажмите «Остаться на странице» и просмотрите страницу внимательнее.");
       return null;
     }
@@ -1054,7 +1053,7 @@ documentReady(function(){
     }
   }
 
-  var removeUnloadWarning = function( event){
+  var removeUnloadWarning = function(event){
     lk.removeEventListener(w, "beforeunload", warningBeforeUnload);
   }
 

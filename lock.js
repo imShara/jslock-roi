@@ -1058,7 +1058,7 @@ documentReady(function(){
     lk.removeEventListener(w, "beforeunload", warningBeforeUnload);
   }
 
-  // Щелчок по любому A-элементу или 'lkr-nav' трактуем как «пользователь читает» и убираем
+  // Щелчок по любому A-элементу или по 'lkr-nav' трактуем как «пользователь читает» и убираем
   // обработчик ухода со страницы.
   lk.addEventListener(d.getElementById('lkr-nav'), "click", removeUnloadWarning);
   

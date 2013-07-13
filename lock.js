@@ -865,6 +865,22 @@ lk.sendStat = function(params) {
     localCounter.params(params);
 };
 
+// addEventListener, работающий и в IE 6-8.
+lk.addEventListener = function(target, eventName, listener) {
+  if (target.addEventListener)
+    target.addEventListener(eventName, listener, false)
+  else if (target.attachEvent)
+    target.attachEvent("on" + eventName, listener);
+}  
+
+// removeEventListener, работающий и в IE 6-8.
+lk.removeEventListener = function(target, eventName, listener) {
+  if (target.removeEventListener)
+    target.removeEventListener(eventName, listener, false)
+  else if (target.detachEvent)
+    target.detachEvent("on" + eventName, listener);
+}  
+
 if (lk.opt.globalCounterId) {
   var globalCounter = {
       params: function (params) {}
@@ -975,6 +991,83 @@ documentReady(function(){
     }
   };
 
+  // Обработчик ухода со страницы. Защищаемся от скоропалительного решения пользователя уйти,
+  // не вчитываясь. 
+  //
+  // К сожалению, обработчик реагирует и на обновление страницы (F5).
+  //
+  // В Опере событие beforeunload не вызывается. Реализовать защиту нет возможности.
+  //
+  var warningBeforeUnload = function(event) {
+    var userAgent = navigator.userAgent.toLowerCase();
+    var messagePrefix = "Не спешите уходить. Сайт всё же доступен. Пожалуйста, ";
+    
+    // Здесь в комментариях описан вид окна-сообщения, которое выдаёт браузер.
+    if (/chrome[ \/]/.test(userAgent)) {
+      // <возвращаемая строка>
+      // Вы действительно хотите покинуть эту страницу?
+      // [Покинуть эту страницу]  [Остаться на этой странице]
+      
+      return messagePrefix + "нажмите «Остаться на этой странице» и просмотрите страницу внимательнее.";
+    }
+    else if (/webkit[ \/]/.test(userAgent)) {
+      // Сафари
+      
+      // JavaScript
+      // Вы действительно хотите уйти с этой страницы?
+      // <возвращаемая строка>
+      //         [Покинуть страницу]  [Остаться на странице]
+      
+      return messagePrefix + "нажмите «Остаться на странице» и просмотрите страницу внимательнее.";
+    }
+    else if (/ msie /.test(userAgent)) {
+      // MSIE 6, 7, 8
+      
+      // Вы действительно хотите уйти с этой страницы?
+      // <содержимое window.event.returnValue>
+      // Чтобы продолжить, нажмите "ОК". Чтобы остаться на данной странице, нажмите "Отмена".
+      //             [ОК]  [Отмена]
+      
+      w.event.returnValue = messagePrefix + "нажмите «Отмена» и просмотрите страницу внимательнее.";
+    
+      // MSIE 9, 10
+      
+      // Вы действительно хотите покинуть эту страницу?
+      // Сообщение с веб-страницы:
+      // <возвращаемая строка>
+      // [Покинуть эту страницу]  
+      // [Остаться на этой странице]
+      
+      return messagePrefix + "нажмите «Остаться на этой странице» и просмотрите страницу внимательнее.";
+    }
+    else if (userAgent.indexOf("compatible") < 0  &&  /mozilla/.test(userAgent)) {
+      // Огнелис. В сообщение, выдаваемое браузером, текст не добавить. Зато работает alert 
+      // (в отличие от других браузеров). Приходится делать два сообщения друг за другом.
+      event.preventDefault();
+      window.alert(messagePrefix +  
+            "в следующем сообщении нажмите «Остаться на странице» и просмотрите страницу внимательнее.");
+      return null;
+    }
+    else { // неизвестный браузер.
+      return messagePrefix + "останьтесь и просмотрите страницу внимательнее.";
+    }
+  }
+
+  var removeUnloadWarning = function(event){
+    lk.removeEventListener(w, "beforeunload", warningBeforeUnload);
+  }
+
+  // Щелчок по любому A-элементу или по 'lkr-nav' трактуем как «пользователь читает» и убираем
+  // обработчик ухода со страницы.
+  lk.addEventListener(d.getElementById('lkr-nav'), "click", removeUnloadWarning);
+  
+  var anchors = d.getElementById('lkr-page').getElementsByTagName("a");
+  for (var i = 0;  i < anchors.length;  ++ i) {
+    lk.addEventListener(anchors[i], "click", removeUnloadWarning);
+  }
+
+  // Устанавливаем обработчик ухода со страницы.
+  lk.addEventListener(w, "beforeunload", warningBeforeUnload);
 });
 
 })(window, document);

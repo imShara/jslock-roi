@@ -101,7 +101,7 @@ javascript:(function(){document.body.appendChild(document.createElement('script'
 Для настройки внешнего вида, можете добавить CSS выражения.
 Например так:
 ```html
-<script src="//cdn.jsdelivr.net/jslock/lock.min.js"></script>
+<script src="//cdn.jsdelivr.net/jslock/lock.min.js" charset="UTF-8"></script>
 <style type="text/css">
 	.lkr-fill {
 		background: #111111 url(//cdn.jsdelivr.net/jslock/images/bg.png) repeat-x;

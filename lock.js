@@ -359,7 +359,7 @@ lk.html = '<div class="lkr-fill"></div>' +
       '<a href="javascript:void(0)" id="lkr-b"></a>' +
     '</div>' +
     '<div class="lkr-note">Разместите это обращение на личном сайте, вставив данный код в любую часть страницы</div>' +
-    '<div class="lkr-note"><span class="lkr-mark">&lt;script src="//cdn.jsdelivr.net/jslock/lock.min.js"&gt;&lt;/script&gt;</span> Исходный код скрипта <a target="_blank" href="https://github.com/imShara/jslock-roi">на GitHub</a></div>' +
+    '<div class="lkr-note"><span class="lkr-mark">&lt;script src="//cdn.jsdelivr.net/jslock/lock.min.js" charset="UTF-8"&gt;&lt;/script&gt;</span> Исходный код скрипта <a target="_blank" href="https://github.com/imShara/jslock-roi">на GitHub</a></div>' +
     '<div class="lkr-note lkr-about">По всем вопросам обращайтесь на Email: block.runet@gmail.com</div>' +
   '</div>';
 

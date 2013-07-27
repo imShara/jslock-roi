@@ -1,1 +1,1 @@
-window.lk.votes(52064)
+window.lk.votes(52065)

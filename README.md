@@ -1,127 +1,54 @@
-##Внимание! Обновите ссылку на код
-###В связи с нагрузками скрипт переехал на CDN jsdelivr
-###Спасибо за работу [jimaek](https://github.com/jimaek)
+mass:werk termlib.js
+=====================
+The JavaScript library "termlib.js" provides a `Terminal' object, which facillitates a simple and object oriented approach to generate and control a terminal-like interface for web services.
+"termlib.js" features direct keyboard input and powerful output methods for multiple and simultanious instances of the 'Terminal' object.
+The library was written with the aim of simple usage and a maximum of compatibility with minimal foot print in the global namespace.
 
-
-
-Примеры работы с разными настройками:   
-[Дефолтные настройки, установлено название сайта](http://showalert.org)  
-[С отключенными подробностями и кнопкой "продолжить"](http://showalert.org/macro.html)  
-[С собственным текстом обращения](http://showalert.org/custom.html)  
-[С картинкой на бэкграунде](http://showalert.org/bgimage.html)
-
-Для добавления страницы блокировки, просто встатьте данный код в любое место на всех страницах вашего сайта:
-
-```html
-<script src="//cdn.jsdelivr.net/jslock/lock.min.js" charset="UTF-8"></script>
-```
-  
-  
-Bookmarklet для тестирования, чтобы посмотреть как будет выглядеть страница на вашем сайте.  
-Создайте в браузере новую закладку и вместо адреса сайта, вставьте этот код. Потом зайдите на свой сайт и нажмите на эту закладку. Код будет однократно запущен. В случае, если вы обнаружили проблему с отображением - напишите issue или отправьте письмо на block.runet@gmail.com:
+A short example:
 ```js
-javascript:(function(){document.body.appendChild(document.createElement('script')).src='//cdn.jsdelivr.net/jslock/lock.js';})();
-````
-  
+var term = new Terminal( {handler: termHandler} );
+  term.open();
 
-Вы можете настроить страницу блокировки по своему усмотрению, добавив перед включением тега кода опции.  
-Например так:
-```html
-<script>
-  window.LOCKR_SETTINGS = {
-    // Меняем время блокировки
-    time: 15, 
-    // Название сайта в заголовке
-    siteName: 'Хабрахрабр'
-  };
-</script>
-<script src="//cdn.jsdelivr.net/jslock/lock.min.js" charset="UTF-8"></script>
+  function termHandler() {
+     this.newLine();
+     var line = this.lineBuffer;
+     if (line != "") {
+        this.write("You typed: "+line);
+     }
+     this.prompt();
+  }
 ```
-  
 
-Список предусмотренных опций:
-```html
-<script>
-  window.LOCKR_SETTINGS = {
-    // время блокировки
-    time: 5, 
-    // Показывать скрипт каждый раз не смотря ни на что
-    showEverytime: false,
-    // Не показывать кнопку продолжить :(
-    thereIsNoFuture: false,
-    // Название сайта в заголовке
-    siteName: 'Хабрахрабр',
-    // Ссылка на сайт в заголовке
-    siteURL: 'http://habrahrabr.ru',
-    // Адрес петиции
-    voteURL: 'http://roi.ru/{адрес петиции}',
-	// Для решения проблемы мёртвых ссылок из соцсетей при снятии скрипта, теперь
-    // по умолчанию для шаринга установлен showalert.org. 
-    // Вы можете легко вернуть всё назад, усстановив true. 
-    // В таком случае пользователь будет публиковать ссылку на ваш сайт
-    // Но, пожалуйста, если вы это делаете, не убирайте скрипт раньше времени.
-    shareLocalURL: false,
-    // Адрес, который публикует пользователь, если отключен shareLocalURL  
-    // Якорь #block заставляет показать страницу блокировки в любом случае
-    shareURL: 'http://showalert.org/#block',  
-    // Ссылка на изображение, которое публикует пользователь в соцсетях
-    shareImg: '//cdn.jsdelivr.net/jslock/images/lock.png',
-    // Заголовок поста, который публикует пользователь в соцсетях
-    shareTitle: 'Интернет-свобода под угрозой! Подпишите официальную петицию!',
-    // Текст, который публикует пользователь (до 140 символов)
-  	shareText: 'С 1 августа вступает в силу #ЗаконПротивИнтернета. У нас есть возможность остановить его. Важен каждый голос!',
-    // Свой собственный текст обращения. Адаптируйте его под свою аудиторию.
-    customMessage: '',
-    // Показывать текст обращения
-    showMessage: true,
-    // Показывать инструкцию по регистрации
-    showManual: true,
-    
-    // Дата, после которой скрипт не запустится (кроме якоря #block)
-    deadline: +new Date("Thu Aug 01 2013 16:00:00 GMT+0400 (MSK)"),
-    // Показывать блок только пользователям с русской локализацией системы/браузера (не рекомендуется)
-    onlyRusLang: false,
-	// Идентификатор глобального счётчика Яндекс.Метрики
-	// Если не хотите делиться статистикой, установите в false
-	globalCounterId: 21749860,
-	// Настройки личного счётчика Яндекс.Метрики
-	// Установите id, если хотите получать статистику по своему сайту.
-	localCounter: {
-		id: 0,
-		trackLinks:true,
-		accurateTrackBounce:true
-	},
-    // Откуда берутся слайды
-    slidePath: "//cdn.jsdelivr.net/jslock/slides/"
-  };
-</script>
-```
-  
+Key Features:
+==============
+ - Object oriented: Handle multiple instances independently at the same time!
 
-Для настройки внешнего вида, можете добавить CSS выражения.
-Например так:
-```html
-<script src="//cdn.jsdelivr.net/jslock/lock.min.js" charset="UTF-8"></script>
-<style type="text/css">
-	.lkr-fill {
-		background: #111111 url(//cdn.jsdelivr.net/jslock/images/bg.png) repeat-x;
-	}
-</style>
-```
-  
-  
->Когда они пришли за коммунистами, я молчал — я не был коммунистом.  
-Когда они пришли за социал-демократами, я молчал — я не был социал-демократом.  
-Когда они пришли за профсоюзными активистами, я молчал — я не был членом профсоюза.  
-Когда они пришли за мной — уже некому было заступиться за меня.  
-[Мартин Нимёллер](http://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D0%B3%D0%B4%D0%B0_%D0%BE%D0%BD%D0%B8_%D0%BF%D1%80%D0%B8%D1%88%D0%BB%D0%B8%E2%80%A6)
-  
-  
-  
-  
-Ссылки по теме:  
-[Текст Закона № 187-ФЗ](http://base.consultant.ru/cons/cgi/online.cgi?req=doc;base=LAW;n=148497)  
-[JS скрипт для протестной блокировки сайта. C таймером и лайками.](http://habrahabr.ru/post/185174/)  
-[100.000 подписей собрано (прим. на onlinepetition.ru), что дальше? Российская Общественная Инициатива!](http://habrahabr.ru/post/185554/)  
-[Проект РосКомСвобода](http://rublacklist.net/)  
-[Ассоциация пользователей интернета](http://freerunet.ru/)  
+ - Type styles: Ready-to-use type styles and support for custom styles and mark up.
+
+ - Colors: Extended support for colors.
+
+ - ANSI codes: Limited ANSI-support for SGR codes.
+
+ - Text wrapping: Automatic text wrapping (v 1.3 and higher, see faq for details)
+
+ - Remote communications: The socket extension for client-server remote communication (commonly known as AJAX) provides a tightly integrated API for a simple and object oriented approach to XMLHttpRequests. (Starting with version 1.5 the socket extension is included in the main library.)
+
+ - Import methods: "termlib.js" provides methods for text import via dialogs or copy'n'paste.
+
+ - Parser: Set up your own shell-like application using the included parser.
+
+ - Documentation: Extensive documentation and loads of usage examples.
+
+ - Free: Best of all: "termlib.js" is free, see the licence below.
+
+
+Note on Backward Compatibility:
+===============================
+
+Version 1.5
+ - Changed the license.
+ - Also dropped support for Netscape 4 (layers) and included the socket extension in the main library.
+ - As the socket extension is now included in the library, please delete any script-tags refering to "termlib_socket.js" from older applications!
+ 
+Version 1.52
+ - Re-organized the Parser. The parser is now a self-contained object with a constructor.
